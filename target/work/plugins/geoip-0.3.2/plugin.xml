@@ -1,0 +1,19 @@
+<plugin name='geoip' version='0.3.2' grailsVersion='2.0 &gt; *'>
+  <author>Radu Andrei Tanasa, Alexey Zhokhov</author>
+  <authorEmail>radu.tanasa@lightwaysoftware.com</authorEmail>
+  <title>Grails GeoIP Plugin</title>
+  <description>\
+This plugin facilitates grails integration with the opensource GeoIP framework offered by MaxMind.
+Using its straightforward API one can find out the country, area, city, geographical coordinates and 
+others based on an IP.
+
+This product includes GeoLite data created by MaxMind, available from
+[www.maxmind.com|http://www.maxmind.com].
+</description>
+  <documentation>http://grails.org/plugin/geoip</documentation>
+  <type>GeoipGrailsPlugin</type>
+  <resources>
+    <resource>DefaultGeoConfig</resource>
+    <resource>org.grails.plugin.geoip.GeoIpService</resource>
+  </resources>
+</plugin>
