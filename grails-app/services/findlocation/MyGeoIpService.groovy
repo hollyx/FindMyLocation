@@ -1,4 +1,4 @@
-package g1
+package findlocation
 
 import grails.transaction.Transactional
 import grails.util.BuildSettingsHolder
