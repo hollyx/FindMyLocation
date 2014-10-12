@@ -1,4 +1,4 @@
-package findlocation
+package g1
 
 import grails.transaction.Transactional
 import grails.util.BuildSettingsHolder
@@ -25,6 +25,9 @@ public class MyGeoIpService implements InitializingBean, ApplicationContextAware
 	ApplicationContext applicationContext
 	
 	def grailsApplication
+	def grailsSettings
+	def servletContext
+	BuildSettingsHolder buildSettingsHolder
 	def lookupService
 	String FILE_LOCATION
 	
@@ -47,18 +50,26 @@ public class MyGeoIpService implements InitializingBean, ApplicationContextAware
 	
 	void afterPropertiesSet() {
 	}
-
-	private String getFileLocation()
+	
+    private String getFileLocation()
 	{
 		if(FILE_LOCATION == null)
 		{
+			String s1 = servletContext.getRealPath("/") + "WEB-INF/GeoLiteCity.dat"
+			/*
+			String datFile = grailsApplication.config.geoip.data.resource
 			StringBuffer buffer = new StringBuffer()
-			buffer.append(BuildSettingsHolder.settings.baseDir.toString())
+			buildSettingsHolder = new BuildSettingsHolder()
+			buffer.append(buildSettingsHolder.settings.baseDir.toString())
 			buffer.append('/web-app/' + grailsApplication.config.geoip.data.resource)
 			log.info("Using GeoIP database from: " + buffer.toString())
-			FILE_LOCATION = buffer.toString()
+			//FILE_LOCATION = buffer.toString()
+			 */
+			FILE_LOCATION = s1
 		}
 		
 		return FILE_LOCATION
-	}	
+	}
+
+		
 }
